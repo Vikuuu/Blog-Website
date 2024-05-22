@@ -1,7 +1,34 @@
+from typing import Any
+from django.db.models.base import Model as Model
+from django.db.models.query import QuerySet
 from django.shortcuts import render, get_object_or_404
 from .models import Post
 from django.http import Http404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.views.generic import ListView, DetailView
+
+
+class PostListView(ListView):
+    queryset = Post.published.all()
+    context_object_name = "posts"
+    paginate_by = 3
+    template_name = "blog/post/list.html"
+
+
+class PostDetailView(DetailView):
+    model = Post
+    template_name = "blog/post/detail.html"
+    context_object_name = "post"
+
+    def get_object(self):
+        return get_object_or_404(
+            Post,
+            status=Post.Status.PUBLISHED,
+            slug=self.kwargs.get("post"),
+            publish__year=self.kwargs.get("year"),
+            publish__month=self.kwargs.get("month"),
+            publish__day=self.kwargs.get("day"),
+        )
 
 
 def post_list(request):
