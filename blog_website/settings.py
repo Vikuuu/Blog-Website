@@ -26,7 +26,7 @@ if path.isfile(dotenv_file):
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-9hpvfg0a90jmzrhmmf%t8z$9y01oo_v6or9)6xt!hey+)n&0)b"
+SECRET_KEY = getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     # Extra Django Apps
     "django.contrib.sites",
     "django.contrib.sitemaps",
+    "django.contrib.postgres",
     # Local App
     "blog.apps.BlogConfig",
     # Third Party App
