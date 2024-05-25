@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     # Extra Django Apps
     "django.contrib.sites",
     "django.contrib.sitemaps",
+    "django.contrib.postgres",
     # Local App
     "blog.apps.BlogConfig",
     # Third Party App
