@@ -32,7 +32,7 @@ SECRET_KEY = getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = getenv("DEBUG", "False").lower() == "true"
 
-ALLOWED_HOSTS = getenv("ALLOWED_HOST")
+ALLOWED_HOSTS = ["https://blog-website-3xr0.onrender.com"]
 
 SITE_ID = 1
 
