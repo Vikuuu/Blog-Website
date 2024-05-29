@@ -19,6 +19,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.sitemaps.views import sitemap
 from blog.sitemaps import PostSitemap
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 sitemaps = {"posts": PostSitemap}
 
@@ -32,3 +33,6 @@ urlpatterns = [
         name="django.contrib.sitemaps.views.sitemap",
     ),
 ]
+
+
+urlpatterns += staticfiles_urlpatterns()
