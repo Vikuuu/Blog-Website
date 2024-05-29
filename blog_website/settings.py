@@ -30,9 +30,9 @@ if path.isfile(dotenv_file):
 SECRET_KEY = getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = getenv("DEBUG", "False").lower() == "true"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = getenv("ALLOWED_HOSTS").split(" ")
 
 SITE_ID = 1
 
