@@ -10,6 +10,7 @@ django-taggit = "*"
 markdown = "*"
 psycopg2 = "*"
 psycopg2-binary = "*"
+dj-database-url = "*"
 
 [dev-packages]
 
